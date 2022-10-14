@@ -1,12 +1,12 @@
-import React from "react";
 import "./App.css";
 import Navbar from './componentes/navbar/navbar'
 import { ItemListContainer } from './Container/ItemListContainer'
 
 const App = () => {
 
-  const mensaje = "Prueba de mensaje para la preentrega"
+  const mensaje = "Encontra acá tu proxima lectura"
 
+ 
   return ( <>
     <Navbar />
     <ItemListContainer greeting={mensaje} />
