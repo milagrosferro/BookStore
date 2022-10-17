@@ -3,7 +3,8 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { CardActionArea, CardActions } from '@mui/material';
+import { Link } from "react-router-dom";
 
 export const Item = ({ producto }) => {
   return (
@@ -11,23 +12,23 @@ export const Item = ({ producto }) => {
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
-          image={producto.imagen}
+          height="200"
+          image={producto.image}
           alt={producto.alt}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {producto.name}
+            {producto.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {producto.descripcion}
+            {producto.description}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+      <Link to="/producto/id">
           Ver Detalle
-        </Button>
+      </Link>
       </CardActions>
     </Card>
   );
@@ -40,7 +41,7 @@ const styles = {
       justifyContent: "center",
       alignItems: "center",
       margin: 20,
-      backgroundColor: "rgba(249, 220, 92, 0.3)",
+      backgroundColor: "#808080.",
     },
     title: {
       textOverflow: "ellipsis",

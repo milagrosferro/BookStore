@@ -4,7 +4,7 @@ export const style = {
       WebkitBoxPack: 'center',
         msFlexPack: 'center',
     marginTop: '0',
-    position: 'sticky',
+   
     top:' 0',
     height: '12vh',
       backgroundColor: '#ffffff',
@@ -17,7 +17,7 @@ export const style = {
       height: '10vh',
       width: '8vw',
     },
-    title:{
+    h1:{
     fontWeight: '700',
     fontSize: '30px',
     textAlign: 'center',
@@ -34,5 +34,11 @@ export const style = {
     shopingCart:{
       height: '12vh',
     },
+    categorias:{
+      color:"black",
+      textDecoration: "none",
+      fontSize: "large",
+      marginRight: "2rem",
+    }
 
 }

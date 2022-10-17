@@ -2,22 +2,44 @@ import React from 'react'
 import logo from '../../assets/logo.png'
 import { CartWidget } from "../CartWidget/CartWidget";
 import { style }from './navbar.style'
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
-  return (
-    <header style={style.header}>
-        <img style={style.imgLogo}src={logo} alt="tienda online" />
-        <h1 style={style.title}>Book Store</h1>
+  
+     const categorias =[
+      { nombre: " Electronics ", id: 0, ruta: "/categoria/electronics" },
+      { nombre: " Jewelery ", id: 1, ruta: "/categoria/jewelery" },
+      { nombre: " Men's clothing ", id: 2, ruta: "/categoria/men's clothing" },
+      { nombre: " Women's clothing ", id: 3, ruta: "/categoria/women's clothing" },
+    ]
+
+    return (
+      <header style={style.header}>
+       <Link style={style.imagenes} to="/">
+        <img style={style.imgLogo} src={logo} alt="BookSTore" />
+      </Link>
+          <h1 style={style.title}>Book Store</h1>
+      
         <nav>
-            <a style={style.cat} href="">Categoria 1</a>
-            <a style={style.cat} href="">Categoria 2</a>
-            <a style={style.cat} href="">Categoria 3</a>
-            <a style={style.cat} href="">Categoria 4</a>
+          {categorias.map((categoria) => {
+            return (
+              <NavLink
+                key={categoria.id}
+                style={style.categorias}
+                to={categoria.ruta}
+              >
+                {categoria.nombre}
+              </NavLink>
+            );
+          })}
         </nav>
-        <CartWidget/>
-    </header>
-  )
-}
+        <Link to="/cart">
+          <CartWidget />
+        </Link>
+      </header>
+    );
+  };
+
 
 export default Navbar
 
