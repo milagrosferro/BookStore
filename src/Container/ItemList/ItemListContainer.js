@@ -7,15 +7,15 @@ export const ItemListContainer = ({ greeting }) => {
 
   const [productos, setProductos] = useState([]);
 
-  const { productId } = useParams();
+  const { id } = useParams();
 
   const URL_BASE = 'https://fakestoreapi.com/products?limit=30'
-  const URL_CAT = `${URL_BASE}/category/${productId} `
+  const URL_CAT = `${URL_BASE}/category/${id} `
 
   useEffect(() => {
     const getProductos = async () => {
       try {
-        const res = await fetch(URL_CAT);
+        const res = await fetch(id ? URL_CAT : URL_BASE);
         const data = await res.json();
         setProductos(data);
       } catch {
@@ -24,7 +24,7 @@ export const ItemListContainer = ({ greeting }) => {
     };
     getProductos();
 
-  }, [])
+  }, [id, URL_BASE, URL_CAT])
 
 
   return (

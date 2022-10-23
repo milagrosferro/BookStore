@@ -5,12 +5,12 @@ import { useParams } from "react-router-dom";
 export const ItemDetailContainer = () => {
   const [producto, setProducto] = useState([]);
 
-  const {productId} = useParams();
+  const { id } = useParams();
     
   useEffect(() => {
     const getProductos = async () => {
       try {
-        const res = await fetch(`https://fakestoreapi.com/products/${productId}`)
+        const res = await fetch("https://fakestoreapi.com/products/"+ id)
         const data = await res.json();
         setProducto(data);
       } catch {
@@ -18,7 +18,7 @@ export const ItemDetailContainer = () => {
       } 
     };
     getProductos();
-  }, [productId]);
+  }, [id]);
 
   return (
     <>

@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea, CardActions } from '@mui/material';
+import { CardActionArea, CardActions, Button,  } from '@mui/material';
 import { Link } from "react-router-dom";
 
 export const Item = ({ producto }) => {
@@ -26,8 +26,10 @@ export const Item = ({ producto }) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Link to="/producto/id">
-          Ver Detalle
+      <Link to={"/producto/" + producto.id}>
+          <Button size="small" color="primary">
+            Ver Detalles
+          </Button>
       </Link>
       </CardActions>
     </Card>
