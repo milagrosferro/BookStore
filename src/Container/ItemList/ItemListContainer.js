@@ -15,7 +15,7 @@ export const ItemListContainer = ({ greeting }) => {
   useEffect(() => {
     const getProductos = async () => {
       try {
-        const res = await fetch(URL_CAT );
+        const res = await fetch(id ? URL_CAT : URL_BASE);
         const data = await res.json();
         setProductos(data);
       } catch {
@@ -24,7 +24,7 @@ export const ItemListContainer = ({ greeting }) => {
     };
     getProductos();
 
-  }, [URL_CAT]);
+  }, [id, URL_BASE, URL_CAT]);
 
 
   return (
