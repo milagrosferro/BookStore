@@ -50,6 +50,7 @@ const styles = {
       overflow: "hidden",
       height: 100,
     },
+  
   };
   
   export default Item;

@@ -16,19 +16,19 @@ const Navbar = () => {
     return (
       <header style={style.header}>
        <Link style={style.imagenes} to="/">
-        <img style={style.imgLogo} src={logo} alt="BookSTore" />
+        <img style={style.imgLogo} src={logo} alt="CambreraStore" />
       </Link>
-          <h1 style={style.title}>Book Store</h1>
+          <h1 style={style.title}>Cambrera Store</h1>
       
         <nav>
-          {categorias.map((categoria) => {
+          {categorias.map((categorias) => {
             return (
               <NavLink
-                key={categoria.id}
+                key={categorias.id}
                 style={style.categorias}
-                to={categoria.ruta}
+                to={categorias.ruta}
               >
-                {categoria.nombre}
+                {categorias.nombre}
               </NavLink>
             );
           })}
