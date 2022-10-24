@@ -34,7 +34,7 @@ export const style = {
     shopingCart:{
       height: '12vh',
     },
-    categorias:{
+    categoria:{
       color:"black",
       textDecoration: "none",
       fontSize: "large",

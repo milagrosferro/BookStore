@@ -21,14 +21,14 @@ const Navbar = () => {
           <h1 style={style.title}>Cambrera Store</h1>
       
         <nav>
-          {categorias.map((categorias) => {
+          {categorias.map((categoria) => {
             return (
               <NavLink
-                key={categorias.id}
-                style={style.categorias}
-                to={categorias.ruta}
+                key={categoria.id}
+                style={style.categoria}
+                to={categoria.ruta}
               >
-                {categorias.nombre}
+                {categoria.nombre}
               </NavLink>
             );
           })}
