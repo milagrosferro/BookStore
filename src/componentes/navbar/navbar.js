@@ -7,10 +7,10 @@ import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
   
      const categorias =[
-      { nombre: " Electronics ", id: 0, ruta: "/categoria/electronics" },
-      { nombre: " Jewelery ", id: 1, ruta: "/categoria/jewelery" },
-      { nombre: " Men's clothing ", id: 2, ruta: "/categoria/men's clothing" },
-      { nombre: " Women's clothing ", id: 3, ruta: "/categoria/women's clothing" },
+      { nombre: " Fantasia ", id: 0, ruta: "/categoria/fantasia" },
+      { nombre: " Romance ", id: 1, ruta: "/categoria/romance" },
+      { nombre: " Misterio ", id: 2, ruta: "/categoria/misterio" },
+      { nombre: " Sagas ", id: 3, ruta: "/categoria/sagas" },
     ]
 
     return (

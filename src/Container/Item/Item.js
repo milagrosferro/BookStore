@@ -20,9 +20,7 @@ export const Item = ({ producto }) => {
           <Typography gutterBottom variant="h5" component="div">
             {producto.title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {producto.description}
-          </Typography>
+          
         </CardContent>
       </CardActionArea>
       <CardActions>
