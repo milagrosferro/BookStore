@@ -11,9 +11,6 @@ export const ItemListContainer = ({ greeting }) => {
 
   const { id } = useParams();
 
-  const URL_BASE = "https://fakestoreapi.com/products"
-  const URL_CAT = `${URL_BASE}/category/${id}`
-
   const prodColect = collection(db, "productos");
   const q = query(prodColect, where('category', '==', "Fantasia"))
 
@@ -31,10 +28,9 @@ export const ItemListContainer = ({ greeting }) => {
     .catch((error) => {
       console.log(error);
     })
-   
 
-  }, [id, URL_BASE, URL_CAT, ]);
 
+  }, [id]);
 
   return (
     
