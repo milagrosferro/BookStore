@@ -12,10 +12,12 @@ export const ItemListContainer = ({ greeting }) => {
   const { id } = useParams();
 
   const prodColect = collection(db, "productos");
-  const q = query(prodColect, where('category', '==', "Fantasia"))
+  const q =  id ? query(prodColect, where('category', '==', id)) : prodColect;
+
 
   useEffect(() => {
-    getDocs(prodColect)
+
+    getDocs(q)
     .then((resultado) => {
       const listProd = resultado.docs.map((item) => {
         return {
