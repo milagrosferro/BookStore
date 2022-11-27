@@ -3,6 +3,7 @@ import ItemList   from "./ItemList";
 import { useParams } from "react-router-dom";
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../../firebase/firebase"
+import "./itemListCont.css"
 
 
 export const ItemListContainer = ({ greeting }) => {
@@ -37,7 +38,7 @@ export const ItemListContainer = ({ greeting }) => {
   return (
     
     <>
-      <h1 >{greeting}</h1>
+      <h1 className="title">{greeting}</h1>
      {
        <>
       {<ItemList productos={productos} />}

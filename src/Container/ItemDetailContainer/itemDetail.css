@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.productContainer{
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px 5px rgb(176, 176, 177);
+}
+.productImg{
+ margin-top: 1rem;
+}
+.productDesc{
+    width: 85%;
+}

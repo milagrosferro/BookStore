@@ -5,7 +5,7 @@ import "./Cart.css";
 import { db } from '../../firebase/firebase';
 import {collection, addDoc, serverTimestamp, doc, updateDoc} from "firebase/firestore";
 import DeleteIcon from '@mui/icons-material/Delete';
-import Swal from 'sweetalert2/dist/sweetalert2.js'
+import Swal from 'sweetalert2'
 
   export const Cart = () => {
     const {cart, qty, total, deleteItem, clear} = useContext(Context);
@@ -25,8 +25,8 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
     }
   
     const finalizarCompra = ()=>{
-      const ventaCollection = collection(db, "ventas");
-      addDoc(ventaCollection, {
+      const ordersCollection = collection(db, "orders");
+      addDoc(ordersCollection, {
         comprador: user,
         items: cart, 
         total,
@@ -34,17 +34,13 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
       })
       .then(result =>{
         Swal.fire({
-          title: ("Tu compra fue completada con exito!", "Codigo de la compra: " + result.id, "success"),
-          width: 600,
-          padding: '3em',
-          color: '#716add',
-          background: '#fff url(/images/trees.png)',
-          backdrop: `
-            rgba(0,0,123,0.4)
-            url("/images/nyan-cat.gif")
-            left top
-            no-repeat
-          `
+          title: ("Tu compra fue realizada con exito! Tu numero de  compra es: " +result.id),
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          }
         })
         })
       .catch(e=>{
