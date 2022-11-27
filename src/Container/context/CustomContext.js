@@ -7,33 +7,54 @@ export const CustomProvider = ({ children }) => {
   const [qty, setQty] = useState(0);
   const [total, setTotal] = useState(0);
 
-  useEffect(() => {
+  const addItem = (item, cantidad)=>{
+    if(IsInCart(item.id)){
+        const modificado = cart.map((producto) => {
+            if (producto.id === item.id) {
+                producto.cantidad += cantidad;
+                }
+                return producto;
+            });
+            setCart(modificado);
+    }else{
+        setCart([...cart, {...item, cantidad}])
+    }     
+
+}
+const deleteItem = (id)=>{
+    setCart(cart.filter(item => item.id !== id));
+}
+
+const IsInCart = (id) =>{
+    return cart.some(item => item.id === id);
+}
+
+useEffect(() => {
     let cantidad = 0;
     let totalC = 0;
-    cart.forEach((item) => {
-      cantidad += item.cantidad;
-      totalC += item.price * item.cantidad;
+
+    cart.forEach(element => {
+        cantidad += element.cantidad;
+        totalC += element.price * element.cantidad
     });
     setQty(cantidad);
     setTotal(totalC);
-  }, [cart]);
+}, [cart]);
 
-  const addItem = (item, cantidad) => {
-    IsInCart(item.id);
-  
-  };
 
-  const deleteItem = (id) => {
-    setCart(cart.filter((item) => item.id !== id));
-  };
-
-  const IsInCart = (id) => cart.some((item) => item.id === id);
-
-  const clear = () => {
-    setCart([]);
+const clear = ()=>{
+    setCart([]); 
     setQty(0);
     setTotal(0);
-  };
+}
+
+
+/*return (
+    <>
+    <CartContext.Provider value={{cart, qty, total, addItem, deleteItem, clear, IsInCart}}>{children}</CartContext.Provider>
+    </>
+)
+}*/
 
   return (
     <Context.Provider value={{ cart, qty, total, addItem, deleteItem, clear }}>

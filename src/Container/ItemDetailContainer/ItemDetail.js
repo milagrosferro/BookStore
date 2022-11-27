@@ -12,23 +12,17 @@ const ItemDetail = ({ producto }) => {
     setMostrarItemCount(false);
   };
 
-  if (mostrarItemCount)
 
   return (
-    <div>
+    <div className="productContainer">
       <img alt={producto.title} src={producto.image} />
       <h1>{producto.title}</h1>
       <span>{producto.description}</span>
       <h2>{producto.price}</h2>
-      {mostrarItemCount ? (
-        <ItemCount initial={1} stock={50} onAdd={onAdd} />
-      ) : (
-        <Link to={'/cart'}>
-          <button>Finalizar Compra</button>
-        </Link>
-      )}
+      {mostrarItemCount ? <ItemCount initial={1} stock={50} onAdd={onAdd}/> :  <Link to="/cart"><button >Finalizar Compra</button></Link>}  
     </div>
-  );
-};
-
+          
+      )
+  }
+  
 export default ItemDetail;

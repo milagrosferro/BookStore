@@ -4,28 +4,32 @@ import React, { useState } from "react";
 
   const [cantidad, setCantidad] = useState(initial);
 
+  const agregar = () => {
+    if (cantidad < stock) {
+      setCantidad(cantidad + 1);
+    }
+  };
+
   const quitar = () => {
     if (cantidad > 1) {
       setCantidad(cantidad - 1);
     }
   };
 
-  const agregar = () => {
-    if (cantidad < stock) {
-      setCantidad(cantidad + 1);
+
+  const agregarAlCarrito = ()=>{
+    if(stock!==0){
+        onAdd(cantidad);
     }
-    else {
-      <h1>No hay stock</h1>
-    }
-  };
+}
 
   return (
     <div>
       <button onClick={quitar}>-</button>
       <h2>{cantidad}</h2>
       <button onClick={agregar}>+</button>
-      <button disabled={stock === 0} onClick={()=>onAdd(cantidad)}>
-        <span>{stock === 0 ? 'No tenemos stock' : 'Agrega al carrito'}</span>
+      <button disabled={stock === 0} onClick={agregarAlCarrito}>
+        <span>{stock === 0 ? 'No tenemos stock' : 'Agregar al carrito'}</span>
       </button>
     </div>
 
